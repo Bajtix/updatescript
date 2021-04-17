@@ -200,7 +200,8 @@ namespace updatescript {
             if(File.Exists(to)) {
                 File.Delete(to);
             }
-            Directory.CreateDirectory(Path.GetDirectoryName(to));
+            if(Path.GetDirectoryName(to) != string.Empty && Path.GetDirectoryName(to) != " ")
+                Directory.CreateDirectory(Path.GetDirectoryName(to));
             Print($"Downloading {from} to {to}...");
             WebClient wc = new WebClient();
             try {
